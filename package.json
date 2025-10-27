@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npx tsx watch src/server.ts",
+    "build": "npx prisma generate && tsc",
+    "start": "node dist/server.js",  // ← Mude para dist
     "prisma": "npx prisma studio"
-  },
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
