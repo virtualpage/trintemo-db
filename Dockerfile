@@ -9,7 +9,7 @@ COPY prisma ./prisma/
 # Instala dependências
 RUN npm install
 
-# Gera o Prisma Client
+# Gera o Prisma Client (usará a DATABASE_URL das variáveis do Railway)
 RUN npx prisma generate
 
 # Copia o código fonte
