@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "npx tsx watch src/server.ts",
     "build": "npx prisma generate && tsc",
-    "start": "node dist/server.js",  // ← Mude para dist
+    "start": "node dist/server.js", 
     "prisma": "npx prisma studio"
   }
   "keywords": [],
