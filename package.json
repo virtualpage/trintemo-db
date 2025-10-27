@@ -6,7 +6,7 @@
     "build": "npx prisma generate && tsc",
     "start": "node dist/server.js", 
     "prisma": "npx prisma studio"
-  }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
