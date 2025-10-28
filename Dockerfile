@@ -4,10 +4,9 @@ WORKDIR /app
 
 # Copia arquivos de dependências e Prisma
 COPY package*.json ./
-COPY .env ./
 COPY prisma ./prisma/
 
-# Instala dependências (roda o postinstall automaticamente)
+# Instala dependências (só gera o Prisma Client)
 RUN npm install
 
 # Copia o restante do código
@@ -19,5 +18,5 @@ RUN npm run build
 # Expõe a porta
 EXPOSE 3000
 
-# Inicia o servidor
+# Inicia o servidor (o db:push rodará aqui, no runtime)
 CMD ["npm", "start"]
