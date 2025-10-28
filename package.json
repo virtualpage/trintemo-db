@@ -5,8 +5,8 @@
     "dev": "npx tsx watch src/server.ts",
     "build": "tsc",
     "postinstall": "npx prisma generate",
+    "start": "node dist/server.js",
     "db:migrate": "npx prisma migrate deploy",
-    "start": "npm run db:migrate && node dist/server.js",
     "prisma": "npx prisma studio"
   },
   "keywords": [],
