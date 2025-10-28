@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Copia arquivos de dependências e Prisma
 COPY package*.json ./
+COPY .env ./
 COPY prisma ./prisma/
 
 # Instala dependências (roda o postinstall automaticamente)
