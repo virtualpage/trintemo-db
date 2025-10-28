@@ -2,16 +2,18 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copia arquivos de dependências
-COPY package*.json ./
+# Copia APENAS os arquivos de dependências primeiro
+COPY package.json package-lock.json* ./
 COPY prisma ./prisma/
 
-# Limpa cache e instala todas as dependências corretamente
-RUN npm cache clean --force
-RUN npm install
+# Instala TODAS as dependências (incluindo devDependencies para build)
+RUN npm ci --only=production && npm cache clean --force
 
 # Copia o restante do código
 COPY . .
+
+# Gera Prisma Client
+RUN npx prisma generate
 
 # Compila TypeScript
 RUN npm run build
