@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "npx tsx watch src/server.ts",
     "build": "tsc",
-    "postinstall": "npx prisma generate",
+    "postinstall": "npx prisma generate && npx prisma db push",
     "start": "node dist/server.js",
     "prisma": "npx prisma studio"
   },
