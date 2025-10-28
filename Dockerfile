@@ -2,21 +2,21 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copia dependências e schema do Prisma
+# Copia arquivos de dependências e Prisma
 COPY package*.json ./
 COPY prisma ./prisma/
 
-# Instala dependências
+# Instala dependências (roda o postinstall automaticamente)
 RUN npm install
 
 # Copia o restante do código
 COPY . .
 
-# Compila o TypeScript
+# Compila TypeScript
 RUN npm run build
 
-# Expõe a porta que o Railway usará
+# Expõe a porta
 EXPOSE 3000
 
-# Comando final - o Railway injeta DATABASE_URL automaticamente
+# Inicia o servidor
 CMD ["npm", "start"]
